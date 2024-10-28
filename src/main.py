@@ -558,7 +558,7 @@ def train_function(args):
             accumulate_grad_batches=args.gradient_accumulation_steps,
             gradient_clip_val=1.0,
             max_epochs=args.num_train_epochs,
-            check_val_every_n_epoch=2,
+            check_val_every_n_epoch=10,
         )    
         trainer = pl.Trainer(**train_params)
         trainer.fit(model, train_dataloaders=model.train_dataloader((order_model_1, order_model_2)), val_dataloaders=model.val_dataloader())
